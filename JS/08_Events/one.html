@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""  ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // Good way of doing but doesnt include everything
+    // document.getElementById('owl').onclick = function (){
+    //     alert("Owl Clicked")
+    // }
+
+    
+    //! To study and learn
+    // attachEvent()
+    // jQuery - on
+   // type(keyboard,mouse etc), timestamp, defaultPrevented,
+   // target, toElement, srcElement, currentTarget
+
+   // clientX, clientY, screenX, screenY
+   // altkey, ctrlkey, shiftkey, keyCode
+
+    // Powerful and modern way and best way
+//    document.getElementById('owl').addEventListener('click',function (e){
+//     console.log(e);
+//    },false)
+
+   // In this method here event propogation i.e event bubbling happens i.e where the below one gets printed first and then the top ones. here if we clicked on owl which is also a child of image where listener is set. so, we will get first owl clicked and then clicked inside the url due to bubbling. so script keeps track from inside and then outside which is bubbling
+//    document.getElementById('images').addEventListener('click',function (e){
+//     console.log("clicked inside the url");
+//    },false)
+//    document.getElementById('owl').addEventListener('click',function (e){
+//     console.log("owl clicked");
+//     e.stopPropagation() // Note: it helps in stopping the bubbling and the event wont bubble and go to top 
+//    },false)
+
+   // It consists of another capturing mode where we set true at the end of the function for all and then the first top one which is url will show and then owl
+//    document.getElementById('images').addEventListener('click',function (e){
+//     console.log("clicked inside the url");
+//    },true)
+//    document.getElementById('owl').addEventListener('click',function (e){
+//     console.log("owl clicked");
+//    },true)
+
+// document.getElementById('google').addEventListener('click', function(e){
+//     console.log("google clicked");
+//     e.stopPropagation() // it shows clicked inside url (#images) due to eventlistern on images so bubbling was occuring when link is clicked also which showed google clicked and clicked inside the url also. to stop the propogation of the images eventlistner we will again use stoppropagation method
+    
+//     e.preventDefault() // prevents it from doing its default work
+
+// },false)
+
+document.querySelector('#images').addEventListener('click', function (e){
+    // console.log(e.target.parentNode);
+    console.log(e.target.tagName); // can use this to get the tag name of that event
+    if (e.target.tagName === 'IMG'){
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+    }
+    // let removeIt = e.target.parentNode
+    // removeIt.remove() // east method to remove
+    // removeIt.parentNode.removeChild(removeIt) // difficult method to remove
+
+
+},false)
+
+   
+</script>
+</html>

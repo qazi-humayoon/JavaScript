@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur Code</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+   const parent =  document.querySelector('.parent') // selecting the parent class
+//    console.log(parent);
+//    console.log(parent.children);
+//    console.log(parent.children[1].innerHTML);
+//* Using loop to get childrens of the parent
+// for(let i = 0; i < parent.children.length; i++){
+//     console.log(parent.children[i].innerHTML);   
+// }
+parent.children[0].style.color = 'green' // changing the color of the childrens
+    parent.children[1].style.color = 'yellow'
+    parent.children[2].style.color = 'red'
+    parent.children[3].style.color = 'blue'
+
+    // console.log(parent.firstElementChild); //* These help in direclty accessing the first or last child of a parent
+    // console.log(parent.lastElementChild);
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne);
+    console.log(dayOne.parentElement); // gives the whole parent of child
+    console.log(dayOne.nextElementSibling); // give sibling of day one
+</script>
+</html>

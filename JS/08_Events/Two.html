@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    // it helps to do a task after a particular time stamp but only once
+    // setTimeout(function () {
+    //     console.log("humayoon");
+    // },2000)
+
+// Same as upar wala but kept func in variable and then used in timeout
+    const sayHumay = function (){
+        console.log("humayoon");
+    }
+    // document.querySelector('h1').innerHTML = 'best JS Series' // to change the h1. (just normally doing here)
+
+    const changeText = function (){
+        document.querySelector('h1').innerHTML = "Best JS Series"
+    }
+    // setTimeout(changeText,2000) // this will now change the h1 text after two seconds automatically
+
+    const changeMe = setTimeout(changeText,2000) // keeping same timeout in a variable and then using that variable to eventlistener and stopping the working of timeout with the help of cleartime out
+    // clearTimeout(changeMe) // dont do like this we clears everything in the register memory
+    document.querySelector('#stop').addEventListener('click',function (){
+        clearTimeout(changeMe)
+        console.log("STOPPED");
+    }) // do like this on an event to be cleared like button we have used
+</script>
+</html>

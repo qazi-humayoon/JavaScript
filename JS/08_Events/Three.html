@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    // const sayDate = function (str){
+    //     console.log(str,Date.now());
+    // }
+
+    // const intervalID = setInterval(sayDate,1000,"hi")
+    // clearInterval(intervalID)
+
+    // Task was to use two buttons and when we click start it should start printing and when we use stop it should stop printing
+    // let intervalId;
+    // const sayName = function (){
+    //     console.log("humayoon",Date.now());
+    // }
+
+    // document.querySelector('#start').addEventListener('click',function(){
+    //      intervalId = setInterval(sayName,1000)
+    // })
+
+    // document.querySelector('#stop').addEventListener('click', function (){
+    //     clearInterval(intervalId)
+    // })
+
+    // Best Way to do the same thing. 
+    let intervalId
+    const sayDate = function (){
+        console.log("humayoon",Date.now())
+    }
+    // setInterval(sayDate,1000)
+    const startName = function (){
+        intervalId = setInterval(sayDate,1000)
+    }
+
+    const stopName = function(){
+        clearInterval(intervalId)
+    }
+
+    document.querySelector('#start').addEventListener('click',startName);
+    document.querySelector('#stop').addEventListener('click', stopName);
+
+    
+</script>
+</html>

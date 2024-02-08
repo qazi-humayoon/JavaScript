@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121">
+    <!-- Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+  </body>
+  <script>
+
+    // Remember it has alternate way called FETCH
+    const requestUrl = "https://api.github.com/users/qazi-humayoon";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      
+      if (xhr.readyState === 4) {  // most of time we get response from api in the form of string
+        const data = JSON.parse(this.responseText); // this used used in current context and as earlier it was in string so we couldn't use data.followers to check  key: value thus we converted it into an object with the help of JSON.parse and now we can easily get all the key:values
+
+        console.log(data);
+        console.log(typeof data); // this will tell that it is of object type now
+        // console.log(data.followers);
+        const followersCount = data.followers;
+
+        const image = document.createElement("div");
+        image.id = "Card";
+        image.innerHTML = `<img src = "https://avatars.githubusercontent.com/u/94228059?v=4" 
+        // alt= "image">  
+        <h2>Name: Humayoon Niyaz</h2>
+        <h2>Total Followers: ${followersCount}</h2>`;
+        image.style.marginLeft = "35%";
+        // image.innerHTML = `<h2>Hello this is an h2 tag</h2>`
+        console.log(image); // it displays the whole html used in console
+        document.body.appendChild(image);
+      }
+    };
+    xhr.send();
+  </script>
+</html>

@@ -1,0 +1,68 @@
+<!--! Lexical Scoping and Closure -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//     function init() {
+//         let name = "Mozilla"; // name is a local variable created by init
+//         function displayName() {
+//         console.log(name);  // use variable declared in the parent function
+//   }
+//   displayName();
+// }
+// init();
+
+// we will check if its true that variables declared inside function cant have access to others
+
+// LEXICAL SCOPING IN JAVASCRIPT: In JavaScript, lexical scoping defines how variables are scoped based on their position in the source code. Variables declared inside a function remain accessible to that function, creating closures for persistent variable access.
+
+    // function outer(){
+    //     let username = "humayoon"
+    //     console.log("Outer",secret); // similarly outer cant access inner variables
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("INNER",username);
+    //     }
+    //     function innerTWo(){
+    //         console.log("InnerTWo",username);
+    //         console.log(secret); // it wont access inner as its outside inner delcared
+    //     }
+    //     inner()
+    //     innerTWo()
+    // }
+    // outer()
+    // console.log("TO OUTER",username);
+
+    // __________________________________________________________
+
+// For CLOSURES WATCH CHAI AUR CODE VIDEO TO UNDERSTAND IT BETTER
+// CLOSURES IN JAVASCRIPT //
+
+// __________________________________________________________
+    function makeFunc() {
+    const name = "Mozilla";
+    function displayName() {
+        console.log(name);
+    }
+    return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+
+
+
+
+
+</script>
+
+
+</html>
